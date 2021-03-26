@@ -1,26 +1,59 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import * as React from 'react'
+import ToDoForm from './components/ToDoForm'
+import ToDoList from './components/ToDoList'
+import {TodoInterface} from './interface'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+const App: React.FC = () => {
+    const [todos, setTodos] = React.useState<TodoInterface[]>([])
+
+    // Create
+    function handleTodoCreate(todo: TodoInterface) {
+        const newTodosState: TodoInterface[] = [...todos]
+        newTodosState.push(todo)
+        setTodos(newTodosState)
+    }
+
+    // Update
+    function handleTodoUpdate(event: React.ChangeEvent<HTMLInputElement>, id: string) {
+
+        const newTodosState: TodoInterface[] = [...todos]
+
+        newTodosState.find((todo: TodoInterface) => todo.id === id)!.name = event.target.value
+
+        setTodos(newTodosState)
+    }
+
+    // Remove
+    function handleTodoRemove(id: string) {
+
+        const newTodosState: TodoInterface[] = todos.filter((todo: TodoInterface) => todo.id !== id)
+
+        setTodos(newTodosState)
+    }
+
+    // Check
+    function handleTodoComplete(id: string) {
+        const newTodosState: TodoInterface[] = [...todos]
+        newTodosState.find((todo: TodoInterface) => todo.id === id)!.isCompleted = !newTodosState.find((todo: TodoInterface) => todo.id === id)!.isCompleted
+        setTodos(newTodosState)
+    }
+
+    return (
+        <div className="App container">
+            <React.Fragment>
+                <div className="card text-center mt-5">
+                    <div className="card-header">
+                        <h2>Bières à gouter</h2>
+                    </div>
+                    <div className="card-body">
+                        <ToDoForm todos={todos} handleTodoCreate={handleTodoCreate}/>
+                    </div>
+                    <div className="card-footer">
+                        <ToDoList todos={todos} handleTodoUpdate={handleTodoUpdate} handleTodoRemove={handleTodoRemove} handleTodoComplete={handleTodoComplete}/>
+                    </div>
+                </div>
+            </React.Fragment>
+        </div>
+    );
 }
-
 export default App;
