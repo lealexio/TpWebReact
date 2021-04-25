@@ -43,7 +43,7 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 
 Alexis Leloup, Manu Lagadec
 
-##Components
+## Components
 
 All components implement an interface named interface.ts
 
