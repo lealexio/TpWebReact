@@ -39,8 +39,32 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
 
-## Learn More
+## Authors
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Alexis Leloup, Manu Lagadec
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+##Components
+
+All components implement an interface named interface.ts
+
+### App component
+
+App is the main component, it calls the three sub-components mentioned below and manages the updating of the list data.
+It has the functions allowing the modification or the deletion of the elements of the list that it passes in argument to its sons via the Props.
+These functions use the task ID and event to apply changes.
+### ToDoForm component
+
+TodoForm manages the entry of a new item in the list, it has several functions to detect the validation of the addition by clicking on the validate button or using the "Enter" key.
+It also prevents the addition of an empty element in the list and generates an id for each new element thanks to `shortid.generate()`.
+
+### ToDoItem component
+
+ToDoItem represents an item of the list, it calls the functions of its parent to manage the deletion, the renaming of items or the validation of it.
+
+### ToDoList component
+
+ToDoList represents the list of items, it creates a list of TodoItem representing each item and give props methods.
+
+
+##Design
+Project fully use [Boostsrap](https://getbootstrap.com) for responsive design.

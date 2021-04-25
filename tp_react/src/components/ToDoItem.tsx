@@ -7,9 +7,9 @@ const ToDoItem = (props: TodoItemInterface) => {
             <div className="input-group-prepend" onClick={() => props.handleTodoComplete(props.todo.id)}>
                 <div className="input-group-text">
                 {props.todo.isCompleted ? (
-                    <span>J'ai bien bu</span>
+                    <span>✔️J'ai bien bu</span>
                 ) : (
-                    <span>A tester</span>
+                    <span>❌A tester</span>
                 )}
                 </div>
             </div>

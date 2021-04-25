@@ -13,7 +13,7 @@ const App: React.FC = () => {
         setTodos(newTodosState)
     }
 
-    // Update
+    // Update an element from ID
     function handleTodoUpdate(event: React.ChangeEvent<HTMLInputElement>, id: string) {
 
         const newTodosState: TodoInterface[] = [...todos]
@@ -23,7 +23,7 @@ const App: React.FC = () => {
         setTodos(newTodosState)
     }
 
-    // Remove
+    // Remove an element from ID
     function handleTodoRemove(id: string) {
 
         const newTodosState: TodoInterface[] = todos.filter((todo: TodoInterface) => todo.id !== id)
@@ -31,7 +31,7 @@ const App: React.FC = () => {
         setTodos(newTodosState)
     }
 
-    // Check
+    // Change state from complete to not complete of an element from ID
     function handleTodoComplete(id: string) {
         const newTodosState: TodoInterface[] = [...todos]
         newTodosState.find((todo: TodoInterface) => todo.id === id)!.isCompleted = !newTodosState.find((todo: TodoInterface) => todo.id === id)!.isCompleted

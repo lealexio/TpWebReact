@@ -12,6 +12,7 @@ const ToDoForm = (props: TodoFormInterface) => {
         setValues(event.target.value)
     }
 
+    //Check "Enter" key for validation
     function handleInputEnter(event: React.KeyboardEvent) {
         // Check for 'Enter' key
         if (event.key === 'Enter' && inputRef.current && inputRef.current.value!='') {
@@ -30,6 +31,7 @@ const ToDoForm = (props: TodoFormInterface) => {
         }
     }
 
+    //Check validation button
     function handleInputValidation() {
 
         if (inputRef.current && inputRef.current.value!='') {
