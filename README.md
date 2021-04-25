@@ -66,5 +66,5 @@ ToDoItem represents an item of the list, it calls the functions of its parent to
 ToDoList represents the list of items, it creates a list of TodoItem representing each item and give props methods.
 
 
-##Design
+## Design
 Project fully use [Boostsrap](https://getbootstrap.com) for responsive design.
